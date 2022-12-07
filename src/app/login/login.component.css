@@ -1,6 +1,6 @@
 mat-card {
     margin: auto;
-    width: 50%;
+    width: 30%;
     padding: 10px;
     align-items: center;
     color: white;
@@ -9,5 +9,5 @@ mat-card {
     margin-right: 20px;
 }
 .example-full-width {
-    width: 400px;
+    width: 100%;
 }

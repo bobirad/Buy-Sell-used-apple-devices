@@ -4,7 +4,7 @@
 <mat-card>
     <mat-card-title>Register New User</mat-card-title>
     <mat-card-content>
-        <form class="example-form">
+        <form (submit)="register()" class="example-form">
             <mat-form-field>
                 <mat-label>Email</mat-label>
                 <input matInput placeholder="Email" name="email" [(ngModel)]="email">
@@ -12,18 +12,19 @@
             <br>
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" name="password" [(ngModel)]="password">
+                <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password">
             </mat-form-field>
             <br>
             <mat-form-field>
                 <mat-label>Confirm Password</mat-label>
-                <input matInput placeholder="Password" name="repass" [(ngModel)]="repass">
+                <input type="password" matInput placeholder="Password" name="repass" [(ngModel)]="repass">
             </mat-form-field>
             <br>
+            <div>
+                <a mat-raised-button routerLink="register" color="accent" class="anc" >Register</a>
+                <a mat-button routerLink="login" color="white" class="anc">Already have an account?</a>
+            </div>
         </form>
-        <div>
-            <a mat-raised-button routerLink="register" color="accent" class="anc" (click)="register()">Register</a>
-            <mat-label>Already have an account? </mat-label>
-        </div>
+        
     </mat-card-content>
 </mat-card>

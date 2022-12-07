@@ -12,12 +12,12 @@
             <br>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" name="password" [(ngModel)]="password">
+                <input type="password"matInput placeholder="Password" name="password" [(ngModel)]="password">
             </mat-form-field>
         </form>
         <div>
-            <a mat-raised-button routerLink="login" color="accent" class="anc" (click)="login()">Login</a>
-            <a mat-raised-button routerLink="register" color="primary" class="anc">Register</a>
+            <a mat-raised-button routerLink="login" color="accent" class="anc" (click)="login()">Log In</a>
+            <a mat-button routerLink="register" color="white" class="anc">Already have an account?</a>
         </div>
     </mat-card-content>
 </mat-card>

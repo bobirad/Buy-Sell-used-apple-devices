@@ -4,3 +4,13 @@
 .anc {
     margin-right: 10px;
 }
+.anc1:link {
+    color:whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+}
+.anc1:visited {
+    color:whitesmoke;
+    background-color: transparent;
+    text-decoration: none;
+}

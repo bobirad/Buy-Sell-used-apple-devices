@@ -1,11 +1,14 @@
 <mat-toolbar class="mat-elevation-z6"color="primary">
-    <span>Buy/Sell Used Apple Devices</span>
+    <a class="anc1"routerLink="home">Buy/Sell Used Apple Devices</a>
     <div class="spacer"></div>
-    <a mat-raised-button routerLink="create" color="accent" class="anc"> + Sell My Device</a>
-    <a mat-raised-button routerLink="catalog" class="anc">Devices For Sale</a>
-
-    <a mat-raised-button routerLink="login" class="anc">Log In</a>
-    <a mat-raised-button routerLink="logout" class="anc">Log Out</a>
-    <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>
-
+    <div *ngIf="isLoggedIn()">
+        <a mat-raised-button routerLink="create" color="accent" class="anc"> + Sell My Device</a>
+        <a mat-raised-button routerLink="catalog" class="anc">Devices For Sale</a>
+        <a mat-raised-button routerLink="logout" class="anc" (click)="logout()">Log Out</a>    
+    </div>
+    <div *ngIf="!isLoggedIn()">
+        <a mat-raised-button routerLink="login" class="anc">Log In</a>
+        <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>    
+    </div>
+   
 </mat-toolbar>

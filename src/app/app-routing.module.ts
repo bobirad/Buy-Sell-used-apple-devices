@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'create', component: CreateComponent},
+  {path: 'logout', component: LoginComponent},
   {path: '**', component: NotfoundComponent}
 ];
 

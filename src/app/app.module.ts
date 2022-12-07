@@ -10,6 +10,8 @@ import { CreateComponent } from './create/create.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { environment } from './environments/environments';
 
 @NgModule({
@@ -25,7 +27,8 @@ import { environment } from './environments/environments';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,12 +6,15 @@ import { Router } from "@angular/router";
     providedIn: 'root'
 })
 export class AuthService {
-    constructor(private fireauth: AngularFireAuth, private router: Router){}
+    isLoggedIn: boolean = false;
+
+    constructor(public fireauth: AngularFireAuth, private router: Router){}
 
     //login method
     login(email: string, password: string){
         this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
             localStorage.setItem('token', 'true');
+            this.isLoggedIn = true;
             this.router.navigate(['catalog']);
         }, err => {
             alert('Something went wrong');
@@ -23,6 +26,7 @@ export class AuthService {
     register(email: string, password: string){
         this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
             localStorage.setItem('token', 'true');
+            this.isLoggedIn = true;
             this.router.navigate(['catalog']);
         }, err => {
             alert(err.message);
@@ -35,10 +39,12 @@ export class AuthService {
     logout(){
         this.fireauth.signOut().then(() => {
             localStorage.removeItem('token');
+            this.isLoggedIn = false;
             this.router.navigate(['/login']);
         }, err => {
             alert(err.message);
         })
     }
 
+    
 }
