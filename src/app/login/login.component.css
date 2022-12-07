@@ -1,0 +1,11 @@
+mat-card {
+    width: 40%;
+    align-items: center;
+    color: white;
+}
+.anc {
+    margin-right: 20px;
+}
+.example-full-width {
+    width: 400px;
+}

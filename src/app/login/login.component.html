@@ -1,1 +1,20 @@
-<p>login works!</p>
+<mat-card>
+    <mat-card-title>User Login</mat-card-title>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" name="username">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" name="password">
+            </mat-form-field>
+        </form>
+        <div>
+            <a mat-raised-button routerLink="login" color="primary" class="anc">Login</a>
+            <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>
+        </div>
+    </mat-card-content>
+</mat-card>
