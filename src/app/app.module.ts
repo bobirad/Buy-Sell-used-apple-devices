@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { CreateComponent } from './create/create.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from './environments/environments';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
