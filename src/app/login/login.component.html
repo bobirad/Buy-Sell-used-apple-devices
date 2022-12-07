@@ -2,22 +2,22 @@
 <br>
 <br>
 <mat-card>
-    <mat-card-title>User Login</mat-card-title>
+    <mat-card-title>Login or <a routerLink="register">Register new user</a></mat-card-title>
     <mat-card-content>
         <form class="example-form">
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Username" name="username">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" name="email" [(ngModel)]="email" >
             </mat-form-field>
             <br>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" name="password">
+                <input matInput placeholder="Password" name="password" [(ngModel)]="password">
             </mat-form-field>
         </form>
         <div>
-            <a mat-raised-button routerLink="login" color="primary" class="anc">Login</a>
-            <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>
+            <a mat-raised-button routerLink="login" color="accent" class="anc" (click)="login()">Login</a>
+            <a mat-raised-button routerLink="register" color="primary" class="anc">Register</a>
         </div>
     </mat-card-content>
 </mat-card>
