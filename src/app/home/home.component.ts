@@ -14,10 +14,7 @@ export class HomeComponent {
   constructor(private router:Router){
   }
   navigate(){
-  //do your any operations
   this.router.navigate(['path']);
-  //also you can pass like this,
- //  this.router.navigateByUrl(['path']);
   }
 }
 

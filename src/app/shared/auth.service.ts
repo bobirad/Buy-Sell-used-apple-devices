@@ -18,7 +18,7 @@ export class AuthService {
             this.router.navigate(['catalog']);
         }, err => {
             alert('Something went wrong');
-            this.router.navigate(['/login']);
+            this.router.navigate(['login']);
         })
     }
 
@@ -30,7 +30,7 @@ export class AuthService {
             this.router.navigate(['catalog']);
         }, err => {
             alert(err.message);
-            this.router.navigate(['/register']);
+            this.router.navigate(['register']);
         })
     }
 

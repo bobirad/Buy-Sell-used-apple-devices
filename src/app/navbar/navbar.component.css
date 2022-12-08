@@ -12,11 +12,10 @@
     background-color: transparent;
     text-decoration: none;
 }
-mat-slide-toggle {
-    margin-right: 20px;
-    
-}
 .search-container {
-    flex: 20px;
+    flex: auto;
+    margin-left: 50px;
 }
-
+.toggle {
+    margin-right: 20px;
+}

@@ -10,12 +10,15 @@
     <div *ngIf="isLoggedIn()">
         <a mat-raised-button routerLink="create" color="accent" class="anc"> + Sell My Device</a>
         <a mat-raised-button routerLink="catalog" class="anc">Devices For Sale</a>
+        <a mat-button routerLink="profile" class="anc">My Profile</a>
         <a mat-raised-button routerLink="logout" class="anc" (click)="logout()">Log Out</a>
     </div>
-    <mat-slide-toggle>Dark</mat-slide-toggle>
     <div *ngIf="!isLoggedIn()">
         <a mat-raised-button routerLink="login" class="anc">Log In</a>
         <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>
     </div>
 
 </mat-toolbar>
+<div class="toggle"align="right">
+    <mat-slide-toggle>Theme</mat-slide-toggle>
+</div>
