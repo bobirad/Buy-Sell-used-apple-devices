@@ -1,6 +1,4 @@
-.spacer {
-    flex: 1 1 auto;
-}
+
 .anc {
     margin-right: 10px;
 }
@@ -14,3 +12,11 @@
     background-color: transparent;
     text-decoration: none;
 }
+mat-slide-toggle {
+    margin-right: 20px;
+    
+}
+.search-container {
+    flex: 20px;
+}
+

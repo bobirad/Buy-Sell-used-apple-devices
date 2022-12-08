@@ -1,0 +1,27 @@
+
+mat-card {
+    border: 20px;
+    width: 250;
+    height: 250px;
+    float: left;
+    margin: 10px;
+
+}
+.main-div{
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+img {
+    height: 180px;
+    width: 230px;
+}
+mat-card-content {
+    text-align: center;
+    margin-bottom: 5px;
+}
+h1 {
+    text-align: center;
+}

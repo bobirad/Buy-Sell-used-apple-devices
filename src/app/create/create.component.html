@@ -1,1 +1,44 @@
-<p>create works!</p>
+<br>
+<br>
+<mat-card>
+    <mat-card-title>List a device</mat-card-title>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field>
+                <mat-label>Device</mat-label>
+                <input matInput name="device">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Model</mat-label>
+                <input matInput name="model">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <input matInput name="year">
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput name="description">
+            </mat-form-field>
+            <br>
+            <!--<mat-form-field>
+                <mat-label>Upload a photo</mat-label>
+                <input type="file" (change)="upload($event)" accept="*.png.jpg" matInput name="photo">
+                <button click="uploadImage()">Upload</button>
+            </mat-form-field>
+            <br>=-->
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input matInput name="price">
+            </mat-form-field>
+            <br>
+            <div>
+                <a mat-raised-button routerLink="create" color="accent" class="anc" >Publish</a>
+            </div>
+        </form>
+        
+    </mat-card-content>
+</mat-card>
