@@ -1,5 +1,5 @@
-export interface Item {
-    _id: string,
+export interface User {
+    id: string,
     name: string,
     telephone: number,
     city: string,

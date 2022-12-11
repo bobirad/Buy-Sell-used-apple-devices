@@ -1,10 +1,10 @@
 export interface Item {
-    _id: string,
+    id: string,
     device: string,
     model: string,
     year: number,
-    batteryHealth: string,
-    description: string,
+    imageUrl: string,
     price: number,
+    description: string,
     owner: string
 }

@@ -3,27 +3,22 @@
 <mat-card>
     <mat-card-title>List a device</mat-card-title>
     <mat-card-content>
-        <form class="example-form">
             <mat-form-field>
                 <mat-label>Device</mat-label>
-                <input matInput name="device">
+                <input matInput name="device" [(ngModel)]="device">
             </mat-form-field>
-            <br>
             <mat-form-field>
                 <mat-label>Model</mat-label>
-                <input matInput name="model">
+                <input matInput name="model" [(ngModel)]="model">
             </mat-form-field>
-            <br>
             <mat-form-field>
                 <mat-label>Year</mat-label>
-                <input matInput name="year">
+                <input matInput name="year" [(ngModel)]="year">
             </mat-form-field>
-            <br>
             <mat-form-field>
-                <mat-label>Description</mat-label>
-                <input matInput name="description">
+                <mat-label>Image Url</mat-label>
+                <input matInput name="imageUrl" [(ngModel)]="imageUrl">
             </mat-form-field>
-            <br>
             <!--<mat-form-field>
                 <mat-label>Upload a photo</mat-label>
                 <input type="file" (change)="upload($event)" accept="*.png.jpg" matInput name="photo">
@@ -32,13 +27,15 @@
             <br>=-->
             <mat-form-field>
                 <mat-label>Price</mat-label>
-                <input matInput name="price">
+                <input matInput name="price" [(ngModel)]="price">
             </mat-form-field>
-            <br>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput name="description" [(ngModel)]="description"></textarea>
+            </mat-form-field>
             <div>
-                <a mat-raised-button routerLink="create" color="accent" class="anc" >Publish</a>
+                <a mat-raised-button routerLink="create" color="accent" class="anc" (click)="createListing()">Publish</a>
             </div>
-        </form>
         
     </mat-card-content>
 </mat-card>
