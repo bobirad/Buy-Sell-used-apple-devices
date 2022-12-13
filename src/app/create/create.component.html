@@ -1,41 +1,31 @@
-<br>
-<br>
-<mat-card>
-    <mat-card-title>List a device</mat-card-title>
-    <mat-card-content>
-            <mat-form-field>
-                <mat-label>Device</mat-label>
-                <input matInput name="device" [(ngModel)]="device">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Model</mat-label>
-                <input matInput name="model" [(ngModel)]="model">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Year</mat-label>
-                <input matInput name="year" [(ngModel)]="year">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Image Url</mat-label>
-                <input matInput name="imageUrl" [(ngModel)]="imageUrl">
-            </mat-form-field>
-            <!--<mat-form-field>
-                <mat-label>Upload a photo</mat-label>
-                <input type="file" (change)="upload($event)" accept="*.png.jpg" matInput name="photo">
-                <button click="uploadImage()">Upload</button>
-            </mat-form-field>
-            <br>=-->
-            <mat-form-field>
-                <mat-label>Price</mat-label>
-                <input matInput name="price" [(ngModel)]="price">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Description</mat-label>
-                <textarea matInput name="description" [(ngModel)]="description"></textarea>
-            </mat-form-field>
-            <div>
-                <a mat-raised-button routerLink="create" color="accent" class="anc" (click)="createListing()">Publish</a>
-            </div>
-        
-    </mat-card-content>
-</mat-card>
+<form [formGroup]="itemForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3">
+        <label>Device</label>
+        <input type="text" formControlName="device" class="form-control" placeholder="Device" required>
+    </div>
+    <div class="mb-3">
+        <label>Model</label>
+        <input type="text" formControlName="model" class="form-control" placeholder="Model" required>
+    </div>
+    <div class="mb-3">
+        <label>Year</label>
+        <input type="number" formControlName="year" class="form-control" placeholder="Year" required>
+    </div>
+    <div class="mb-3">
+        <label>imageUrl</label>
+        <input type="text" formControlName="imageUrl" class="form-control" placeholder="imageUrl" required>
+    </div>
+    <div class="mb-3">
+        <label>Price</label>
+        <input type="number" formControlName="price" class="form-control" placeholder="Price" required>
+    </div>
+    <div class="mb-3">
+        <label>Description</label>
+        <input type="text" formControlName="description" class="form-control" placeholder="Description" required>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary" [disabled]="!itemForm.valid">Publish</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+</form>
+

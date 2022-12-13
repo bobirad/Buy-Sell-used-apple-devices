@@ -8,20 +8,31 @@ export class DataService {
   constructor(private afs: AngularFirestore) { }
 
   createListing(item: Item){
-    item.id = this.afs.createId();
-    return this.afs.collection('/Items').add(item);
+    return this.afs.collection('Items').add(item).then(response => 
+      { console.log(response)}, error => console.log(error));
   }
 
   getAllListings(){
-    return this.afs.collection('/Items').doc();
+    return this.afs.collection('Items').doc();
+  }
+
+  getListing(id: any){
+    return this.afs.collection('Items').doc(id).valueChanges();
   }
 
   deleteListing(item: Item){
-    return this.afs.doc('/Items' + item.id).delete();
+    return this.afs.collection('Items').doc(item.id).delete();
   }
 
-  editListing(item: Item){
-    this.deleteListing(item);
-    this.createListing(item);
+  editListing(item: Item, id:any){
+    return this.afs.collection('Items').doc(id).update({
+      id: item.id,
+      device: item.device,
+      model: item.model,
+      year: item.year,
+      price: item.price,
+      imageUrl: item.imageUrl,
+      description: item.description
+    })
   }
 }
