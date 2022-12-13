@@ -9,6 +9,7 @@ import {
   providedIn: 'root',
 })
 export class DataService {
+  [x: string]: any;
   itemsRef!: AngularFireList<any>;
   itemRef!: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) {}

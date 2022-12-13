@@ -7,27 +7,27 @@
         <form >
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" name="email" [(ngModel)]="email">
+                <input matInput placeholder="Email" name="email" [(ngModel)]="email" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Name</mat-label>
-                <input matInput placeholder="Name" name="name" [(ngModel)]="name">
+                <input matInput placeholder="Name" name="name" [(ngModel)]="name" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Telephone Number</mat-label>
-                <input matInput placeholder="Number" name="number" [(ngModel)]="number">
+                <input matInput placeholder="Number" name="number" [(ngModel)]="number" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>City</mat-label>
-                <input matInput placeholder="City" name="city" [(ngModel)]="city">
+                <input matInput placeholder="City" name="city" [(ngModel)]="city" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password">
+                <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="password" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Confirm Password</mat-label>
-                <input type="password" matInput placeholder="Password" name="repass" [(ngModel)]="repass">
+                <input type="password" matInput placeholder="Password" name="repass" [(ngModel)]="repass" required>
             </mat-form-field>
             <div>
                 <a mat-raised-button routerLink="register" color="accent" class="anc" (click)="register()">Register</a>

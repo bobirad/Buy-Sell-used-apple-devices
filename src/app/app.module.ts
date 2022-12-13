@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MaterialModule } from './material-model';
 import { CatalogComponent } from './catalog/catalog.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CatalogComponent } from './catalog/catalog.component';
     NotfoundComponent,
     CreateComponent,
     HomeComponent,
-    CatalogComponent
+    CatalogComponent,
+    ProfileComponent
   ],
 
   imports: [

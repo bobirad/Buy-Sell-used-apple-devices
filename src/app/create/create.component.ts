@@ -3,6 +3,7 @@ import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Item } from '../interfaces/item';
 
 @Component({
   selector: 'app-create',
@@ -11,12 +12,12 @@ import { Validators } from '@angular/forms';
 })
 export class CreateComponent implements OnInit{
   public itemForm!: FormGroup;
-
+  items!: Item[];
   constructor(
     public dataService: DataService,
     public builder: FormBuilder,
     public router: Router
-  ){ }
+    ){ }
 
   ngOnInit() {
     this.dataService.GetAllListings();
@@ -35,6 +36,7 @@ export class CreateComponent implements OnInit{
 
   onSubmit(){
     this.dataService.createListing(this.itemForm.value);
+  
     this.router.navigate(['catalog']);
     
     

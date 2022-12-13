@@ -1,9 +1,11 @@
 <p>catalog works!</p>
-<div *ngFor=" let item of items">
+
+<div class="right-align" *ngFor=" let item of itemsList">
     <mat-card >
         <img mat-card-image routerLink="" src="{{item.imageUrl}}">
         <mat-card-actions>
-            <a mat-button>{{item.name}}</a>
+            <a mat-button>{{item.price}}</a>
+            <mat-label>{{item.device}} {{item.model}}</mat-label>
         </mat-card-actions>
     </mat-card>
 </div>
