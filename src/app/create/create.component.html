@@ -1,31 +1,35 @@
-<form [formGroup]="itemForm" (ngSubmit)="onSubmit()" novalidate>
-    <div class="mb-3">
-        <label>Device</label>
-        <input type="text" formControlName="device" class="form-control" placeholder="Device" required>
-    </div>
-    <div class="mb-3">
-        <label>Model</label>
-        <input type="text" formControlName="model" class="form-control" placeholder="Model" required>
-    </div>
-    <div class="mb-3">
-        <label>Year</label>
-        <input type="number" formControlName="year" class="form-control" placeholder="Year" required>
-    </div>
-    <div class="mb-3">
-        <label>imageUrl</label>
-        <input type="text" formControlName="imageUrl" class="form-control" placeholder="imageUrl" required>
-    </div>
-    <div class="mb-3">
-        <label>Price</label>
-        <input type="number" formControlName="price" class="form-control" placeholder="Price" required>
-    </div>
-    <div class="mb-3">
-        <label>Description</label>
-        <input type="text" formControlName="description" class="form-control" placeholder="Description" required>
-    </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-primary" [disabled]="!itemForm.valid">Publish</button>
-        <button type="reset" class="btn btn-danger">Reset</button>
-    </div>
-</form>
 
+<mat-card>
+    <mat-card-title>Create New Listing</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="itemForm"  novalidate>
+            <mat-form-field class="mb-3">
+                <mat-label>Device</mat-label>
+                <input type="text" formControlName="device" class="form-control" placeholder="Device" required>
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <mat-label>Model</mat-label>
+                <input type="text" formControlName="model" class="form-control" placeholder="Model" required>
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <mat-label>Year</mat-label>
+                <input type="number" formControlName="year" class="form-control" placeholder="Year" required>
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <mat-label>imageUrl</mat-label>
+                <input type="text" formControlName="imageUrl" class="form-control" placeholder="imageUrl" required>
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <mat-label>Price</mat-label>
+                <input type="number" formControlName="price" class="form-control" placeholder="Price" required>
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <mat-label>Description</mat-label>
+                <input type="text" formControlName="description" class="form-control" placeholder="Description - minimum 10 characters" required [minlength]="10">
+            </mat-form-field>
+            <mat-form-field class="mb-3">
+                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" [disabled]="!itemForm.valid" (click)="onSubmit()">Publish</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <a mat-raised-button type="reset" class="btn btn-danger">Reset</a>
+            </mat-form-field>
+        </form>

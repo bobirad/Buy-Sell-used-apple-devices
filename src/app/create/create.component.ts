@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -9,30 +10,33 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit{
-  public itemForm: FormGroup;
+  public itemForm!: FormGroup;
 
   constructor(
-    public dataservice: DataService,
-    public formBuilder: FormBuilder,
+    public dataService: DataService,
+    public builder: FormBuilder,
     public router: Router
-  ){
-    this.itemForm = this.formBuilder.group({
-      device: [''],
-      model: [''],
-      year: [''],
-      price: [''],
-      imageUrl: [''],
-      description: ['']
-    })
-  }
+  ){ }
 
-  ngOnInit(): void {
-    
+  ngOnInit() {
+    this.dataService.GetAllListings();
+    this.itemaForm();
+  }
+  itemaForm(){
+    this.itemForm = this.builder.group({
+      device: ['', [Validators.required, Validators.minLength(3)]],
+      model: ['', [Validators.required, Validators.minLength(3)]],
+      year: ['', [Validators.required]],
+      imageUrl: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+    });
   }
 
   onSubmit(){
-    this.dataservice.createListing(this.itemForm.value);
-    console.log(this.itemForm.value)
+    this.dataService.createListing(this.itemForm.value);
     this.router.navigate(['catalog']);
+    
+    
   }
 }

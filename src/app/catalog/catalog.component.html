@@ -1,1 +1,9 @@
 <p>catalog works!</p>
+<div *ngFor=" let item of items">
+    <mat-card >
+        <img mat-card-image routerLink="" src="{{item.imageUrl}}">
+        <mat-card-actions>
+            <a mat-button>{{item.name}}</a>
+        </mat-card-actions>
+    </mat-card>
+</div>

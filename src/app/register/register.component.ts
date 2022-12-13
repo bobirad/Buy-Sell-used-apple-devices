@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit{
   email: string = '';
+  name: string = '';
+  number: string = '';
+  city: string = '';
   password: string ='';
   repass: string ='';
   constructor(private auth: AuthService){ }
