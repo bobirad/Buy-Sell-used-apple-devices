@@ -15,6 +15,7 @@ mat-card {
   }
 
 img {
+    align-self: center;
     height: 180px;
     width: 230px;
 }

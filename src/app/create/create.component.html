@@ -29,7 +29,7 @@
                 <input type="text" name="description" [(ngModel)]="description" class="form-control" placeholder="Description - minimum 10 characters" required >
             </mat-form-field>
             <mat-form-field >
-                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" [disabled]="!itemForm.valid" (click)="addListing()">Publish</a>
+                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="addListing()">Publish</a>
                 &nbsp; &nbsp; &nbsp; &nbsp;
                 <a mat-raised-button type="reset" class="btn btn-danger">Reset</a>
             </mat-form-field>

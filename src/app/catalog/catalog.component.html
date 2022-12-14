@@ -1,11 +1,9 @@
-<p>catalog works!</p>
-
+<h2>All Listings</h2>
 <div class="right-align" *ngFor=" let item of itemsList">
     <mat-card>
-        <img class="imac-pic" mat-card-image routerLink="login" src="{{item.imageUrl}}">
+        <img class="imac-pic" mat-card-image src="{{item.imageUrl}}" routerLink="{{item.id}}">
         <mat-card-actions>
-            <a mat-button>{{item.device}} {{item.model}}</a>
-            <mat-label>{{item.price}}</mat-label>
+            <a mat-button routerLink="{{item.id}}">{{item.device| uppercase}} {{item.model | uppercase}} - {{item.price | currency:'BGN'}}</a>
         </mat-card-actions>
     </mat-card>
 </div>

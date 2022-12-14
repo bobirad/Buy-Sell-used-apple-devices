@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Item } from '../interfaces/item';
 import { DataService } from '../shared/data.service';
 
@@ -24,15 +25,17 @@ export class CatalogComponent implements OnInit {
   imageUrl: string = '';
   price: number = NaN;
   description: string = '';
-  constructor(private db: DataService) {}
+  constructor(
+    private db: DataService,
+    ) {}
 
   errorFetcingData = false;
 
   ngOnInit(): void {
     this.getAllListings();
   }
-  async getAllListings(){
-    this.db.GetAllListings().subscribe(res => {
+  getAllListings(){
+    this.db.getAllListings().subscribe(res => {
       this.itemsList = res.map((e:any) => {
         const data = e.payload.doc.data();
         data.id = e.payload.doc.id;
@@ -42,5 +45,5 @@ export class CatalogComponent implements OnInit {
       alert('Error while fetching items data.');
     })
   }
-
+  
 }

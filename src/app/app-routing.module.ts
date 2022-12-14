@@ -4,11 +4,11 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { EdititemComponent } from './edititem/edititem.component';
 import { HomeComponent } from './home/home.component';
+import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
-import { AuthGuardService } from './shared/guards/auth.activate';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -18,6 +18,7 @@ const routes: Routes = [
   {path: 'catalog', component: CatalogComponent},
   {path: 'create', component: CreateComponent },
   {path: 'edit-item/:id', component: EdititemComponent },
+  {path: 'catalog/:id', component: ListingDetailsComponent },
   {path: 'profile', component: ProfileComponent},
   {path: '**', component: NotfoundComponent}
 ];

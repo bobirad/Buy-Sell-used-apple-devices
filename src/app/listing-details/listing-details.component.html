@@ -1,0 +1,19 @@
+<a mat-raised-button color="primary" routerLink="/catalog">Back to All Listings</a>
+&nbsp;
+<div class="details-div">
+    <mat-card>
+        <mat-label>{{id}}</mat-label>
+        <mat-form-field>
+            <img class="imac-pic" mat-card-image src="{{listing.imageUrl}}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-card-actions>
+                <a mat-label>{{listing.device| uppercase}} {{listing.model | uppercase}} - {{listing.price |
+                    currency:'BGN'}}</a>
+            </mat-card-actions>
+            <a mat-raised-button color="primary">Edit</a>
+            <a mat-raised-button color="accent">Delete</a>
+        </mat-form-field>
+    </mat-card>
+
+</div>

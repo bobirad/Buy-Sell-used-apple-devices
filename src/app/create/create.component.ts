@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
 import { Item } from '../interfaces/item';
 
 @Component({
@@ -11,7 +10,6 @@ import { Item } from '../interfaces/item';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit{
-  public itemForm!: FormGroup;
   itemsList: Item[] = [];
   itemObj: Item = {
     id: '',
@@ -32,28 +30,14 @@ export class CreateComponent implements OnInit{
 
   constructor(
     public dataService: DataService,
-    public builder: FormBuilder,
     public router: Router
   ){ }
 
   ngOnInit() {
-    this.dataService.GetAllListings();
-    //this.itemaForm();
+    this.dataService.getAllListings();
   }
-  /*
-  itemaForm(){
-    this.itemForm = this.builder.group({
-      device: ['', [Validators.required, Validators.minLength(3)]],
-      model: ['', [Validators.required, Validators.minLength(3)]],
-      year: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      description: ['', [Validators.required, Validators.minLength(10)]],
-    });
-  }*/
 
   addListing(){
-    //this.dataService.createListing(this.itemForm.value);
     this.itemObj.id = '';
     this.itemObj.device = this.device;
     this.itemObj.model = this.model;

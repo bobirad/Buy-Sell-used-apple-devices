@@ -18,6 +18,7 @@ import { CreateComponent } from './create/create.component';
 import { MaterialModule } from './material-model';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ListingDetailsComponent } from './listing-details/listing-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProfileComponent } from './profile/profile.component';
     CreateComponent,
     HomeComponent,
     CatalogComponent,
-    ProfileComponent
+    ProfileComponent,
+    ListingDetailsComponent
   ],
 
   imports: [
