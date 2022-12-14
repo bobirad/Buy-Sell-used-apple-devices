@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../interfaces/item';
-import {
-  AngularFireDatabase,
-  AngularFireList,
-} from '@angular/fire/compat/database';
+import { AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -15,7 +12,6 @@ export class DataService {
   listing!: Observable<any>;
   constructor(
     private afs: AngularFirestore,
-    private db: AngularFireDatabase
     ) {}
 
   
@@ -26,7 +22,7 @@ export class DataService {
 
 
   getListing(id:any) {
-    return this.db.object('items/' + id).valueChanges();;
+    return this.afs.doc('items/' + id).valueChanges();;
   }
 
 

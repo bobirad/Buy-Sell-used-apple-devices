@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'catalog', component: CatalogComponent},
+  {path: 'catalog', component: CatalogComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'create', component: CreateComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'edit-item/:id', component: EdititemComponent, canActivate: [AngularFireAuthGuard] },
   {path: 'catalog/:id', component: ListingDetailsComponent, canActivate: [AngularFireAuthGuard]},
