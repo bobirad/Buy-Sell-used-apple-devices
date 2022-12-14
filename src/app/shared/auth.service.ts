@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
-
 @Injectable({
     providedIn: 'root'
 })
@@ -12,7 +11,11 @@ export class AuthService {
 
     //login method
     login(email: string, password: string){
-        this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
+        
+
+        this.fireauth
+        .signInWithEmailAndPassword(email, password)
+        .then(() => {
             localStorage.setItem('token', 'true');
             this.isLoggedIn = true;
             this.router.navigate(['catalog']);
@@ -20,6 +23,8 @@ export class AuthService {
             alert('Something went wrong');
             this.router.navigate(['login']);
         })
+    
+    
     }
 
     //register method

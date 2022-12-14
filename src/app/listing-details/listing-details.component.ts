@@ -22,7 +22,6 @@ export class ListingDetailsComponent {
 
   constructor(
     private db: DataService,
-    private router: Router,
     private route: ActivatedRoute
     ) {}
 
