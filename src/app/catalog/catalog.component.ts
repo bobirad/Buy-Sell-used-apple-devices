@@ -10,6 +10,7 @@ import { DataService } from '../shared/data.service';
 export class CatalogComponent implements OnInit {
   itemsList: Item[] = [];
   itemObj: Item = {
+    id: '',
     device: '',
     model: '',
     year: NaN,
@@ -27,17 +28,19 @@ export class CatalogComponent implements OnInit {
 
   errorFetcingData = false;
 
-
   ngOnInit(): void {
-    this.db.GetAllListings().subscribe({
-      next: (value: Item[]) => {
-        this.itemsList = value;
-      },
-      error: (err: any) => {
-        this.errorFetcingData = true;
-        console.error(err);
-      }
-    });
+    this.getAllListings();
+  }
+  async getAllListings(){
+    this.db.GetAllListings().subscribe(res => {
+      this.itemsList = res.map((e:any) => {
+        const data = e.payload.doc.data();
+        data.id = e.payload.doc.id;
+        return data;
+      })
+    }, (err: any) => {
+      alert('Error while fetching items data.');
+    })
   }
 
 }

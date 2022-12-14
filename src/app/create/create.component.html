@@ -3,33 +3,33 @@
 <mat-card>
     <mat-card-title>Create New Listing</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="itemForm">
+        <form >
             <mat-form-field >
                 <mat-label>Device</mat-label>
-                <input type="text" formControlName="device" class="form-control" placeholder="Device" required>
+                <input type="text" name="device" [(ngModel)]="device" class="form-control" placeholder="Device" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Model</mat-label>
-                <input type="text" formControlName="model" class="form-control" placeholder="Model" required>
+                <input type="text" name="model" [(ngModel)]="model" class="form-control" placeholder="Model" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Year</mat-label>
-                <input type="number" formControlName="year" class="form-control" placeholder="Year" required>
+                <input type="number" name="year" [(ngModel)]="year" class="form-control" placeholder="Year" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>imageUrl</mat-label>
-                <input type="text" formControlName="imageUrl" class="form-control" placeholder="imageUrl" required>
+                <input type="text" name="imageUrl" [(ngModel)]="imageUrl" class="form-control" placeholder="imageUrl" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Price</mat-label>
-                <input type="number" formControlName="price" class="form-control" placeholder="Price" required>
+                <input type="number" name="price" [(ngModel)]="price" class="form-control" placeholder="Price" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Description</mat-label>
-                <input type="text" formControlName="description" class="form-control" placeholder="Description - minimum 10 characters" required [minlength]="10">
+                <input type="text" name="description" [(ngModel)]="description" class="form-control" placeholder="Description - minimum 10 characters" required >
             </mat-form-field>
             <mat-form-field >
-                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" [disabled]="!itemForm.valid" (click)="onSubmit()">Publish</a>
+                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" [disabled]="!itemForm.valid" (click)="addListing()">Publish</a>
                 &nbsp; &nbsp; &nbsp; &nbsp;
                 <a mat-raised-button type="reset" class="btn btn-danger">Reset</a>
             </mat-form-field>

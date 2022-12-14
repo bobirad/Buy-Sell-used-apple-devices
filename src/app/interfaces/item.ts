@@ -1,5 +1,5 @@
 export interface Item {
-  //  id: string,
+    id: string,
     device: string,
     model: string,
     year: number,
