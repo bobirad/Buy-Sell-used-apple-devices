@@ -10,14 +10,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
-
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'catalog', component: CatalogComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'create', component: CreateComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'edit-item/:id', component: EdititemComponent, canActivate: [AngularFireAuthGuard] },
+  {path: 'catalog/edit/:id', component: EdititemComponent, canActivate: [AngularFireAuthGuard] },
   {path: 'catalog/:id', component: ListingDetailsComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', component: NotfoundComponent}

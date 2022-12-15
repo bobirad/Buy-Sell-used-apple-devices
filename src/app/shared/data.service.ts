@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../interfaces/item';
 import { AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -10,6 +10,8 @@ export class DataService {
   itemsRef!: AngularFireList<any>;
   itemRef!: Observable<any>;
   listing!: Observable<any>;
+  listingDoc!: AngularFirestoreDocument<Item>;
+
   constructor(
     private afs: AngularFirestore,
     ) {}
@@ -32,12 +34,12 @@ export class DataService {
 
  
   editListing(item: Item) {
-    this.deleteItem(item);
+    this.deleteListing(item);
     this.createListing(item);
   }
 
 
-  deleteItem(item: Item) {
-    return this.afs.doc('/items'+item.id).delete();
+  deleteListing(item: Item) {
+    return this.afs.collection('items').doc(item.id).delete();
   }
 }

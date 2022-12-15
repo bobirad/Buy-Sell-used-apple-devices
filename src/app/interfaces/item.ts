@@ -6,5 +6,6 @@ export interface Item {
     imageUrl: string,
     price: number,
     description: string,
-   // owner: string
+    //owner: string
+    //watchers: string[]
 }

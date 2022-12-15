@@ -9,8 +9,8 @@
             <a mat-label>{{this.listing.price | currency:'BGN'}}</a>
         </mat-form-field>
         <mat-form-field>
-            <a mat-raised-button color="primary">Edit</a>
-            <a mat-raised-button color="accent">Delete</a>
+            <a mat-raised-button color="primary" routerLink="edit/{{this.listing.id}}">Edit</a>
+            <a mat-raised-button color="accent" (click)="deleteListing1(this.listing)">Delete</a>
         </mat-form-field>
 
     </mat-card>

@@ -22,7 +22,8 @@ export class ListingDetailsComponent {
 
   constructor(
     private db: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
     ) {}
 
   ngOnInit(): void {
@@ -30,5 +31,12 @@ export class ListingDetailsComponent {
     this.db.getListing(this.id).subscribe(listing=> {
       this.listing = listing;
     })
+  }
+
+  deleteListing1(item: Item){
+    if(window.confirm('Are you sure you want to Delete: ' + item.device + ' ' + item.model + '?')){
+      this.db.deleteListing(item);
+      this.router.navigate(['catalog']);
+    }
   }
 }
