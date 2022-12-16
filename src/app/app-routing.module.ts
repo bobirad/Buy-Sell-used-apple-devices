@@ -11,12 +11,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'catalog', component: CatalogComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'create', component: CreateComponent, canActivate: [AngularFireAuthGuard]},
-  {path: 'catalog/edit/:id', component: EdititemComponent, canActivate: [AngularFireAuthGuard] },
+  {path: 'edit/:id', component: EdititemComponent, canActivate: [AngularFireAuthGuard] },
   {path: 'catalog/:id', component: ListingDetailsComponent, canActivate: [AngularFireAuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AngularFireAuthGuard]},
   {path: '**', component: NotfoundComponent}

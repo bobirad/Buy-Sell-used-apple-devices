@@ -4,12 +4,18 @@
         <mat-form-field>
             <a mat-label>{{this.listing.device| uppercase}} {{this.listing.model | uppercase}}</a>
         </mat-form-field>
-            <img class="imac-pic" mat-card-image src="{{this.listing.imageUrl}}">
+        <img class="imac-pic" mat-card-image src="{{this.listing.imageUrl}}">
+        <mat-form-field>
+            <a mat-label>{{this.listing.description}}</a>
+        </mat-form-field>
+        <mat-form-field>
+            <a mat-label>Owner:{{this.listing.owner}}</a>
+        </mat-form-field>
         <mat-form-field>
             <a mat-label>{{this.listing.price | currency:'BGN'}}</a>
         </mat-form-field>
         <mat-form-field>
-            <a mat-raised-button color="primary" routerLink="edit/{{this.listing.id}}">Edit</a>
+            <a mat-raised-button color="primary" routerLink="/edit/{{this.listing.id}}">Edit</a>
             <a mat-raised-button color="accent" (click)="deleteListing1(this.listing)">Delete</a>
         </mat-form-field>
 

@@ -19,6 +19,7 @@ import { MaterialModule } from './material-model';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
+import { EdititemComponent } from './edititem/edititem.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ListingDetailsComponent } from './listing-details/listing-details.compo
     NavbarComponent,
     NotfoundComponent,
     CreateComponent,
+    EdititemComponent,
     HomeComponent,
     CatalogComponent,
     ProfileComponent,

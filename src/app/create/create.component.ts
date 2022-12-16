@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 import { Item } from '../interfaces/item';
+import { getAuth } from "firebase/auth";
+
 
 @Component({
   selector: 'app-create',
@@ -9,6 +11,7 @@ import { Item } from '../interfaces/item';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent implements OnInit{
+  auth = getAuth();
   itemsList: Item[] = [];
   itemObj: Item = {
     id: '',
@@ -17,7 +20,8 @@ export class CreateComponent implements OnInit{
     year: NaN,
     imageUrl: '',
     price: NaN,
-    description: ''
+    description: '',
+    owner: ''
   };
   id: string = '';
   device: string ='';
@@ -26,6 +30,7 @@ export class CreateComponent implements OnInit{
   imageUrl: string = '';
   price: number = NaN;
   description: string = '';
+  owner: any = '';
 
   constructor(
     public dataService: DataService,
@@ -37,6 +42,8 @@ export class CreateComponent implements OnInit{
   }
 
   addListing(){
+    let creator = this.auth.currentUser;
+    const creatorEmail = creator?.email;
     this.itemObj.id = '';
     this.itemObj.device = this.device;
     this.itemObj.model = this.model;
@@ -44,6 +51,7 @@ export class CreateComponent implements OnInit{
     this.itemObj.imageUrl = this.imageUrl;
     this.itemObj.price = this.price;
     this.itemObj.description = this.description;
+    this.itemObj.owner = creatorEmail!;
     this.dataService.createListing(this.itemObj);
     this.router.navigate(['catalog']);
     

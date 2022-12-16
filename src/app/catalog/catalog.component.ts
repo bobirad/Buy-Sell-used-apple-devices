@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Item } from '../interfaces/item';
 import { DataService } from '../shared/data.service';
 
@@ -9,7 +8,7 @@ import { DataService } from '../shared/data.service';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  itemsList: Item[] = [];
+  itemsList: any[] = [];
   itemObj: Item = {
     id: '',
     device: '',
@@ -18,6 +17,7 @@ export class CatalogComponent implements OnInit {
     imageUrl: '',
     price: NaN,
     description: '',
+    owner: ''
   };
   device: string = '';
   model: string = '';
@@ -25,24 +25,24 @@ export class CatalogComponent implements OnInit {
   imageUrl: string = '';
   price: number = NaN;
   description: string = '';
+  owner: string = '';
+
   constructor(
     private db: DataService,
     ) {}
-
-  errorFetcingData = false;
 
   ngOnInit(): void {
     this.getAllListings();
   }
   getAllListings(){
-    this.db.getAllListings().subscribe(res => {
+     this.db.getAllListings().subscribe(res => {
       this.itemsList = res.map((e:any) => {
-        const data = e.payload.doc.data();
+        let data = e.payload.doc.data();
         data.id = e.payload.doc.id;
         return data;
       })
     }, (err: any) => {
-      alert('Error while fetching items data.');
+      alert(err);
     })
   }
   

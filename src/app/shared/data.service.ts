@@ -24,7 +24,7 @@ export class DataService {
 
 
   getListing(id:any) {
-    return this.afs.doc('items/' + id).valueChanges();;
+    return this.afs.doc('items/' + id).valueChanges();
   }
 
 
@@ -33,13 +33,12 @@ export class DataService {
   }
 
  
-  editListing(item: Item) {
-    this.deleteListing(item);
-    this.createListing(item);
+  editListing(item: Item, id:any) {
+    return this.afs.collection('items').doc(id).update(item);
   }
 
 
-  deleteListing(item: Item) {
-    return this.afs.collection('items').doc(item.id).delete();
+  deleteListing(id:any) {
+    return this.afs.doc('items/' + id).delete();
   }
 }

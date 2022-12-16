@@ -4,6 +4,7 @@
         <img class="imac-pic" mat-card-image src="{{item.imageUrl}}" routerLink="{{item.id}}">
         <mat-card-actions>
             <a mat-button routerLink="{{item.id}}">{{item.device| uppercase}} {{item.model | uppercase}} - {{item.price | currency:'BGN'}}</a>
+            <a mat-button>Owner: {{item.owner}}</a>
         </mat-card-actions>
     </mat-card>
 </div>

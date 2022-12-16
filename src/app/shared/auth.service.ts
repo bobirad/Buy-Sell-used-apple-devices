@@ -20,7 +20,7 @@ export class AuthService {
             this.isLoggedIn = true;
             this.router.navigate(['catalog']);
         }, err => {
-            alert('Something went wrong');
+            alert(err);
             this.router.navigate(['login']);
         })
     
@@ -30,7 +30,7 @@ export class AuthService {
     //register method
     register(email: string, password: string){
         this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-            localStorage.setItem('token', 'true');
+            localStorage.setItem('token', 'true');    
             this.isLoggedIn = true;
             this.router.navigate(['catalog']);
         }, err => {

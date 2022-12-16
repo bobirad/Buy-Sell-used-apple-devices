@@ -1,14 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../shared/auth.service';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  auth!: AuthService;
-  constructor(){}
+  
+  getauth = getAuth();
+  constructor( private router: Router){}
   ngOnInit(): void {
-    //this.auth.currentUser()
-  }
+    /*onAuthStateChanged(this.getauth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        alert(uid);
+      } else {
+        this.router.navigate(['login']);
+      }
+    this.auth.currentUser()
+    
+  })*/
+
+
+  
 }
+}
+

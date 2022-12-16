@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Item } from '../interfaces/item';
 import { DataService } from '../shared/data.service';
 @Component({
   selector: 'app-listing-details',
@@ -17,7 +15,8 @@ export class ListingDetailsComponent {
     year: NaN,
     imageUrl: '',
     price: NaN,
-    description: ''
+    description: '',
+    owner: ''
   }
 
   constructor(
@@ -33,9 +32,10 @@ export class ListingDetailsComponent {
     })
   }
 
-  deleteListing1(item: Item){
+  deleteListing1(item:any){
+    this.id = this.route.snapshot.params['id'];
     if(window.confirm('Are you sure you want to Delete: ' + item.device + ' ' + item.model + '?')){
-      this.db.deleteListing(item);
+      this.db.deleteListing(this.id);
       this.router.navigate(['catalog']);
     }
   }
