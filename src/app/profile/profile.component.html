@@ -1,5 +1,24 @@
 <h1>My Items for Sale</h1>
-<br>
-<h1>Watching</h1>
-<br>
+<div class="right-align" *ngFor=" let listing of userListings">
+    <mat-card>
+        <img class="imac-pic" mat-card-image src="{{listing.imageUrl}}" routerLink="{{listing.id}}">
+        <mat-card-actions>
+            <a mat-button routerLink="{{listing.id}}">{{listing.device| uppercase}} {{listing.model | uppercase}} - {{listing.price | currency:'BGN'}}</a>
+        </mat-card-actions>
+        <mat-form-field>
+            <a mat-label>{{listing.year}}</a>
+        </mat-form-field>
+        <mat-form-field>
+            <a mat-label>{{listing.description}}</a>
+        </mat-form-field>
+        <mat-form-field>
+            <a mat-raised-button color="primary" [routerLink]="['/edit-listing/'+ listing.id]">Edit</a>
+            <a mat-raised-button color="accent" >Delete</a>
+        </mat-form-field>
+    </mat-card>
+</div>
+<h2>My email: {{this.currentUserEmail}}</h2>
+
+
+
 

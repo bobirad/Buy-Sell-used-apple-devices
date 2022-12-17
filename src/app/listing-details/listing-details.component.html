@@ -1,8 +1,8 @@
-<a mat-raised-button color="primary" routerLink="/catalog">Back to All Listings</a>
+<a mat-raised-button color="accent" routerLink="/catalog">Back to All Listings</a>
 <div class="details-div">
     <mat-card>
         <mat-form-field>
-            <a mat-label>{{this.listing.device| uppercase}} {{this.listing.model | uppercase}}</a>
+            <a mat-label>{{this.listing.device| uppercase}} {{this.listing.model | uppercase}} - {{this.listing.year}} year</a>
         </mat-form-field>
         <img class="imac-pic" mat-card-image src="{{this.listing.imageUrl}}">
         <mat-form-field>
@@ -15,7 +15,7 @@
             <a mat-label>{{this.listing.price | currency:'BGN'}}</a>
         </mat-form-field>
         <mat-form-field>
-            <a mat-raised-button color="primary" routerLink="/edit/{{this.listing.id}}">Edit</a>
+            <a mat-raised-button color="primary" [routerLink]="['/edit-listing/'+ this.id]">Edit</a>
             <a mat-raised-button color="accent" (click)="deleteListing1(this.listing)">Delete</a>
         </mat-form-field>
 

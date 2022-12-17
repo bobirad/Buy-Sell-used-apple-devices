@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Item } from '../interfaces/item';
 import { getAuth } from "firebase/auth";
 
-
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -51,7 +50,7 @@ export class CreateComponent implements OnInit{
     this.itemObj.imageUrl = this.imageUrl;
     this.itemObj.price = this.price;
     this.itemObj.description = this.description;
-    this.itemObj.owner = creatorEmail!;
+    this.itemObj.owner = creatorEmail!.toString();
     this.dataService.createListing(this.itemObj);
     this.router.navigate(['catalog']);
     

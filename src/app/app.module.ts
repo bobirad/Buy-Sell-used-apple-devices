@@ -15,11 +15,16 @@ import { environment } from './environments/environments';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
-import { MaterialModule } from './material-model';
+//import { MaterialModule } from './material-model';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ListingDetailsComponent } from './listing-details/listing-details.component';
 import { EdititemComponent } from './edititem/edititem.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,20 +36,25 @@ import { EdititemComponent } from './edititem/edititem.component';
     HomeComponent,
     CatalogComponent,
     ProfileComponent,
-    ListingDetailsComponent
+    ListingDetailsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    //MaterialModule
   ],
 
   providers: [],

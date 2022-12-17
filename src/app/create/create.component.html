@@ -5,28 +5,22 @@
     <mat-card-content>
         <form>
             <mat-form-field >
-                <mat-label>Device</mat-label>
-                <input type="text" name="device" [(ngModel)]="device" class="form-control" placeholder="Device" required>
+                <input type="text" matInput name="device" [(ngModel)]="device"  placeholder="Device" required>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>Model</mat-label>
-                <input type="text" name="model" [(ngModel)]="model" class="form-control" placeholder="Model" required>
+                <input type="text" matInput name="model" [(ngModel)]="model"  placeholder="Model" required>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>Year</mat-label>
-                <input type="number" name="year" [(ngModel)]="year" class="form-control" placeholder="Year" required>
+                <input type="number" matInput name="year" [(ngModel)]="year"  placeholder="Year" required>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>imageUrl</mat-label>
-                <input type="text" name="imageUrl" [(ngModel)]="imageUrl" class="form-control" placeholder="imageUrl" required>
+                <input type="text" matInput name="imageUrl" [(ngModel)]="imageUrl"  placeholder="imageUrl" required>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>Price</mat-label>
-                <input type="number" name="price" [(ngModel)]="price" class="form-control" placeholder="Price" required>
+                <input type="number" matInput name="price" [(ngModel)]="price"  placeholder="Price" required>
             </mat-form-field>
             <mat-form-field >
-                <mat-label>Description</mat-label>
-                <input type="text" name="description" [(ngModel)]="description" class="form-control" placeholder="Description - minimum 10 characters" required >
+                <input type="text" matInput name="description" [(ngModel)]="description"  placeholder="Description - minimum 10 characters" required >
             </mat-form-field>
             <mat-form-field >
                 <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="addListing()">Publish</a>

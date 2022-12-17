@@ -6,5 +6,6 @@
             <a mat-button routerLink="{{item.id}}">{{item.device| uppercase}} {{item.model | uppercase}} - {{item.price | currency:'BGN'}}</a>
             <a mat-button>Owner: {{item.owner}}</a>
         </mat-card-actions>
+        <a mat-raised-button color="primary" routerLink="{{item.id}}">Details</a>
     </mat-card>
 </div>

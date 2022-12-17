@@ -1,38 +1,35 @@
-<p>edititem works!</p>
-
-<br>
-<br>
+<a mat-raised-button color="accent" class="btn btn-primary" routerLink="/catalog" >Back to My</a>
 <mat-card>
     <mat-card-title>Edit Listing</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="editForm">
+        <form>
             <mat-form-field >
                 <mat-label>Device</mat-label>
-                <input type="text" name="device" formControlName="device" value="{{this.editForm.value.device}}" placeholder="Device" required>
+                <input type="text" name="device" [(ngModel)]="listing.device" class="form-control" placeholder="Device" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Model</mat-label>
-                <input type="text" name="model" formControlName="model" class="form-control" placeholder="Model" required>
+                <input type="text" name="model" [(ngModel)]="listing.model" class="form-control" placeholder="Model" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Year</mat-label>
-                <input type="number" name="year" formControlName="year" class="form-control" placeholder="Year" required>
+                <input type="number" name="year" [(ngModel)]="listing.year" class="form-control" placeholder="Year" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>imageUrl</mat-label>
-                <input type="text" name="imageUrl" formControlName="imageUrl" class="form-control" placeholder="imageUrl" required>
+                <input type="text" name="imageUrl" [(ngModel)]="listing.imageUrl" class="form-control" placeholder="imageUrl" required>
             </mat-form-field>
-            <mat-form-field >
+            <mat-form-field MatFormFieldControl >
                 <mat-label>Price</mat-label>
-                <input type="number" name="price" formControlName="price" class="form-control" placeholder="Price" required>
+                <input type="number" name="price" [(ngModel)]="listing.price" class="form-control" placeholder="Price" required>
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Description</mat-label>
-                <input type="text" name="description" formControlName="description" class="form-control" placeholder="Description - minimum 10 characters" required >
+                <input type="text" name="description" [(ngModel)]="listing.description" class="form-control" placeholder="Description - minimum 10 characters" required >
             </mat-form-field>
             <mat-form-field >
                 <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="editSubmit()">Publish</a>
                 &nbsp; &nbsp; &nbsp; &nbsp;
-                <a mat-raised-button type="reset" class="btn btn-danger">Reset</a>
+                <a mat-raised-button type="reset" class="btn btn-danger" routerLink="/catalog/{{this.id}}">Cancel</a>
             </mat-form-field>
         </form>
