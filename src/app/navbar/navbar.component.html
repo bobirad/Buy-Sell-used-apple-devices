@@ -5,16 +5,16 @@
             <a mat-button type="submit">Submit</a>
     </div>
     <div class="spacer"></div>
-    <div *ngIf="isLoggedIn()">
+    <div *ngIf="isLoggedIn(); else loggedOut">
         <a mat-raised-button routerLink="create" color="accent" class="anc"> + Sell My Device</a>
         <a mat-raised-button routerLink="catalog" class="anc">Devices For Sale</a>
         <a mat-button routerLink="profile" class="anc">My Profile</a>
         <a mat-raised-button routerLink="logout" class="anc" (click)="logout()">Log Out</a>
     </div>
-    <div *ngIf="!isLoggedIn()">
+    <ng-template #loggedOut>
         <a mat-raised-button routerLink="login" class="anc">Log In</a>
         <a mat-raised-button routerLink="register" color="accent" class="anc">Register</a>
-    </div>
+    </ng-template>
 
 </mat-toolbar>
 <div class="toggle"align="right">

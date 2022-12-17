@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from '../interfaces/item';
 import { DataService } from '../shared/data.service';
 
 @Component({
@@ -9,24 +8,7 @@ import { DataService } from '../shared/data.service';
 })
 export class CatalogComponent implements OnInit {
   itemsList: any[] = [];
-  itemObj: Item = {
-    id: '',
-    device: '',
-    model: '',
-    year: NaN,
-    imageUrl: '',
-    price: NaN,
-    description: '',
-    owner: ''
-  };
-  device: string = '';
-  model: string = '';
-  year: number = NaN;
-  imageUrl: string = '';
-  price: number = NaN;
-  description: string = '';
-  owner: string = '';
-
+  
   constructor(
     private db: DataService,
     ) {}
