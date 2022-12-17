@@ -1,4 +1,4 @@
-<a mat-raised-button color="accent" class="btn btn-primary" routerLink="/catalog" >Back to All Listings</a>
+<a mat-raised-button color="accent" class="btn btn-primary" routerLink="/profile" >Back to My Listings</a>
 <mat-card>
     <mat-card-title>Edit Listing</mat-card-title>
     <mat-card-content>
@@ -30,6 +30,6 @@
             <mat-form-field >
                 <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="editSubmit()">Publish</a>
                 &nbsp; &nbsp; &nbsp; &nbsp;
-                <a mat-raised-button type="reset" color="primary" routerLink="/catalog/{{this.id}}">Cancel</a>
+                <a mat-raised-button type="reset" class="btn btn-danger" routerLink="/profile/{{this.id}}">Cancel</a>
             </mat-form-field>
         </form>

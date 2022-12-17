@@ -9,16 +9,12 @@
             <a mat-label>{{this.listing.description}}</a>
         </mat-form-field>
         <mat-form-field>
-            <a mat-label>Owner:{{this.listing.owner}}</a>
+            <a mat-label>Owner: {{this.listing.owner}}</a>
         </mat-form-field>
         <mat-form-field>
             <a mat-label>{{this.listing.price | currency:'BGN'}}</a>
         </mat-form-field>
-        <mat-form-field>
-            <a mat-raised-button color="primary" [routerLink]="['/edit-listing/'+ this.id]">Edit</a>
-            <a mat-raised-button color="accent" (click)="deleteListing1(this.listing)">Delete</a>
-        </mat-form-field>
-
+        <a mat-raised-button color="primary" routerLink="/catalog">Back to All Listings</a>
     </mat-card>
 
 </div>

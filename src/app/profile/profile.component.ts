@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getAuth} from "firebase/auth";
 import { DataService } from '../shared/data.service';
 @Component({
@@ -11,13 +12,20 @@ export class ProfileComponent implements OnInit {
   itemsList: any[] = [];
   currentUserEmail: any;
   userListings: any;
+  id: any;
+  listing: any;
   constructor( 
-    private db: DataService
+    private db: DataService,
+    private route: ActivatedRoute,
+    private router: Router
     ){}
 
   ngOnInit(): void {
     this.getAllListings();
     this.currentUserEmail = this.getauth.currentUser?.email;
+    this.db.getListing(this.id).subscribe(listing=> {
+      this.listing = listing;
+    })
   }
 
   
@@ -31,6 +39,14 @@ export class ProfileComponent implements OnInit {
    }, (err: any) => {
      alert(err);
    })
+  }
+
+  deleteListing1(item:any){
+    this.id = this.route.snapshot.params['id'];
+    if(window.confirm('Are you sure you want to Delete: ' + item.device + ' ' + item.model + '?')){
+      this.db.deleteListing(item.id);
+      this.router.navigate(['/profile']);
+    }
   }
 
 }

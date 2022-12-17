@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../interfaces/item';
-import { AngularFireList } from '@angular/fire/compat/database';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { AngularFirestore} from '@angular/fire/compat/firestore';
 import { getAuth } from 'firebase/auth';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { query, where, getDocs } from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +11,6 @@ export class DataService {
   getauth = getAuth();
   itemsRef!: any;
   itemRef!: {};
-  //db = getDatabase();
   constructor(
     private afs: AngularFirestore,
     ) {}
