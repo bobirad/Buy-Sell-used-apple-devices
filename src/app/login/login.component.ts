@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   
   }
 
-  async login() {
+  login() {
     this.auth.login(this.email, this.password);
   }
  
