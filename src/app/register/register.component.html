@@ -7,7 +7,7 @@
         <form [formGroup]="registerForm">
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input type="text"matInput placeholder="Email" name="email" formControlName="email" required>
+                <input type="text" matInput placeholder="Email" name="email" formControlName="email" required>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Password</mat-label>
@@ -17,10 +17,8 @@
                 <mat-label>Confirm Password</mat-label>
                 <input type="password" matInput placeholder="Password" name="repass" formControlName="repass" required>
             </mat-form-field>
-            <div>
                 <a mat-raised-button routerLink="register" color="accent" class="anc" (click)="register()">Register</a>
-                <a mat-button routerLink="login" color="white" class="anc">Already have an account?</a>
-            </div>
+                <a mat-button routerLink="login" color="white" class="anc" routerLink="/login">Already have an account?</a>
         </form>
         
     </mat-card-content>

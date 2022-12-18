@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -17,18 +18,26 @@ export class RegisterComponent implements OnInit{
   repass: string ='';
   constructor(
     private auth: AuthService,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private router: Router
     ){ }
   ngOnInit(): void {
     this.registerForm = this.builder.group({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-      repass: new FormControl('', Validators.required)
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      repass: new FormControl('', [Validators.required, Validators.minLength(6)])
     })
   }
   register(){
-    const {email, password} = this.registerForm.value;
+    const {email, password, repass} = this.registerForm.value;
+    if(password != repass){
+      alert('Passwords don\'t match!');
+      this.router.navigate(['/register']);
+      this.registerForm.reset();
+      return;
+    }
     this.auth.register(email, password);
+
   }
 
 
