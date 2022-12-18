@@ -5,11 +5,11 @@
         <form>
             <mat-form-field >
                 <mat-label>Device</mat-label>
-                <input type="text" name="device" [(ngModel)]="listing.device" class="form-control" placeholder="Device" required>
+                <input type="text" name="device" [(ngModel)]="listing.device" class="form-control" placeholder="Device" required minlength="3">
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Model</mat-label>
-                <input type="text" name="model" [(ngModel)]="listing.model" class="form-control" placeholder="Model" required>
+                <input type="text" name="model" [(ngModel)]="listing.model" class="form-control" placeholder="Model" required minlength="3">
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Year</mat-label>
@@ -17,7 +17,7 @@
             </mat-form-field>
             <mat-form-field >
                 <mat-label>imageUrl</mat-label>
-                <input type="text" name="imageUrl" [(ngModel)]="listing.imageUrl" class="form-control" placeholder="imageUrl" required>
+                <input type="text" name="imageUrl" [(ngModel)]="listing.imageUrl" class="form-control" placeholder="imageUrl" required minlength="3">
             </mat-form-field>
             <mat-form-field MatFormFieldControl >
                 <mat-label>Price</mat-label>
@@ -25,7 +25,7 @@
             </mat-form-field>
             <mat-form-field >
                 <mat-label>Description</mat-label>
-                <input type="text" name="description" [(ngModel)]="listing.description" class="form-control" placeholder="Description - minimum 10 characters" required >
+                <input type="text" name="description" [(ngModel)]="listing.description" class="form-control" placeholder="Description - minimum 10 characters" required minlength="10">
             </mat-form-field>
             <mat-form-field >
                 <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="editSubmit()">Publish</a>

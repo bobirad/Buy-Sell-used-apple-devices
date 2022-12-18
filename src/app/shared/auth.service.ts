@@ -5,14 +5,14 @@ import { Router } from "@angular/router";
     providedIn: 'root'
 })
 export class AuthService {
-    isLoggedIn: boolean = false;
+    isLoggedIn = this.fireauth.currentUser != null
+
 
     constructor(public fireauth: AngularFireAuth, private router: Router){}
 
     //login method
     login(email: string, password: string){
         
-
         this.fireauth
         .signInWithEmailAndPassword(email, password)
         .then(() => {

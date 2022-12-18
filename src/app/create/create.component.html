@@ -5,26 +5,26 @@
     <mat-card-content>
         <form>
             <mat-form-field >
-                <input type="text" matInput name="device" [(ngModel)]="device"  placeholder="Device" required>
+                <input type="text" matInput name="device" [(ngModel)]="device"  placeholder="Device" required minlength="3">
             </mat-form-field>
             <mat-form-field >
-                <input type="text" matInput name="model" [(ngModel)]="model"  placeholder="Model" required>
+                <input type="text" matInput name="model" [(ngModel)]="model"  placeholder="Model" required minlength="3">
             </mat-form-field>
             <mat-form-field >
                 <input type="number" matInput name="year" [(ngModel)]="year"  placeholder="Year" required>
             </mat-form-field>
             <mat-form-field >
-                <input type="text" matInput name="imageUrl" [(ngModel)]="imageUrl"  placeholder="imageUrl" required>
+                <input type="text" matInput name="imageUrl" [(ngModel)]="imageUrl"  placeholder="imageUrl" required minlength="3">
             </mat-form-field>
             <mat-form-field >
                 <input type="number" matInput name="price" [(ngModel)]="price"  placeholder="Price" required>
             </mat-form-field>
             <mat-form-field >
-                <input type="text" matInput name="description" [(ngModel)]="description"  placeholder="Description - minimum 10 characters" required >
+                <input type="text" matInput name="description" [(ngModel)]="description"  placeholder="Description - minimum 10 characters" required minlength="10" >
             </mat-form-field>
             <mat-form-field >
                 <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="addListing()">Publish</a>
                 &nbsp; &nbsp; &nbsp; &nbsp;
-                <a mat-raised-button type="reset" class="btn btn-danger">Reset</a>
+                <a mat-raised-button routerLink="/catalog">Back</a>
             </mat-form-field>
         </form>
