@@ -18,8 +18,9 @@ export class ListingDetailsComponent {
     ) {}
   
   ngOnInit(): void {
+    //const currentUserEmail = this.auth.currentUser?.email;
     this.id = this.route.snapshot.params['id'];
-    this.db.getListing(this.id).subscribe(listing=> {
+    this.db.getListing(this.id).subscribe((listing: any)=> {
       this.listing = listing;
     })
 

@@ -5,18 +5,23 @@
     <mat-card-title>Log In</mat-card-title>
     <br>
     <mat-card-content>
-        <form class="example-form">
+        <form class="example-form" name="loginForm">
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput placeholder="Email" name="email" [(ngModel)]="email" required>
+                <input matInput placeholder="Email" #emailcheck="ngModel" name="email" [(ngModel)]="email" required email>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Password</mat-label>
                 <input type="password"matInput placeholder="Password" name="password" [(ngModel)]="password" required minlength="6">
             </mat-form-field>
         </form>
+        <div *ngIf="emailcheck.invalid && (emailcheck.dirty || emailcheck.touched)" class="alert">
+            <div *ngIf="emailcheck.errors?.['required']">
+                Email is required.
+            </div>
+        </div>
         <div>
-            <a mat-raised-button routerLink="login" color="accent" class="anc" (click)="login()">Log In</a>
+            <a mat-raised-button color="accent" class="anc" (click)="login()">Log In</a>
             <a mat-button routerLink="register" color="white" class="anc" routerLink="/register">Don't have an account?</a>
         </div>
     </mat-card-content>

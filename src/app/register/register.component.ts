@@ -30,6 +30,21 @@ export class RegisterComponent implements OnInit{
   }
   register(){
     const {email, password, repass} = this.registerForm.value;
+    if(email == '' || password == '' || repass == ''){
+      alert('All fields required!');
+      this.router.navigate(['/register']);
+      return;
+    }
+    if(email.invalid){
+      alert('Please input a valid email address!');
+      this.router.navigate(['/register']);
+      return;
+    }
+    if(password.invalid){
+      alert('Password must me at least 6 characters!');
+      this.router.navigate(['/register']);
+      return;
+    }
     if(password != repass){
       alert('Passwords don\'t match!');
       this.router.navigate(['/register']);
@@ -37,7 +52,6 @@ export class RegisterComponent implements OnInit{
       return;
     }
     this.auth.register(email, password);
-
   }
 
 

@@ -45,11 +45,10 @@ export class AuthService {
         this.fireauth.signOut().then(() => {
             localStorage.clear();
             this.isLoggedIn = false;
-            this.router.navigate(['']);
+            this.router.navigate(['login']);
         }, err => {
             alert(err.message);
         })
     }
-
-    
+   
 }
