@@ -11,7 +11,9 @@ export class NavbarComponent{
   get isLoggedIn(){
     return this.auth.isLoggedIn;
   }
-  
+  get user() {
+    return this.auth.fireauth.currentUser;
+  }
   /*ngOnInit(): void {
   this.isLoggedIn();
   }
@@ -19,5 +21,8 @@ export class NavbarComponent{
     //return this.auth.fireauth.currentUser != null;
     return this.auth.isLoggedIn;
   }*/
+  logout(){
+    this.auth.logout();
+  }
 }
 

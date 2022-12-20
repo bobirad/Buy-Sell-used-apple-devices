@@ -3,6 +3,7 @@ import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 import { Item } from '../interfaces/item';
 import { getAuth } from "firebase/auth";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,8 @@ import { getAuth } from "firebase/auth";
 })
 export class CreateComponent implements OnInit{
   auth = getAuth();
-  itemsList: Item[] = [];
+  createForm!:FormGroup;
+  
   itemObj: Item = {
     id: '',
     device: '',
@@ -38,9 +40,18 @@ export class CreateComponent implements OnInit{
 
   ngOnInit() {
     this.dataService.getAllListings();
+    this.createForm = new FormGroup({
+      device: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      model: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      year: new FormControl('', [Validators.required]),
+      imageUrl: new FormControl('', [Validators.required]),
+      price: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required, Validators.minLength(3)])
+    })
   }
 
   addListing(){
+    if(this.createForm.invalid){ return; }
     let creator = this.auth.currentUser;
     const creatorEmail = creator?.email;
     this.itemObj.id = '';

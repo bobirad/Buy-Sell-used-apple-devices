@@ -10,7 +10,7 @@
         <a mat-raised-button routerLink="create" color="accent" class="anc"> + Sell My Device</a>
         <a mat-raised-button routerLink="catalog" class="anc">Devices For Sale</a>
         <a mat-button routerLink="profile" class="anc">My Profile</a>
-        <a mat-raised-button routerLink="logout" class="anc">Log Out</a>
+        <a mat-raised-button (click)="logout()" class="anc">Log Out</a>
     </ng-template>
     <ng-template #loggedOutTemplate>
         <a mat-raised-button routerLink="login" class="anc">Log In</a>
