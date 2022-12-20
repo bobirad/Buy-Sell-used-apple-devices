@@ -28,6 +28,7 @@ export class EdititemComponent implements OnInit{
   
   }
   editSubmit(){
+    alert('Edited successfuly!');
     let listing = {
       id: this.listing.id,
       device: this.listing.device,
@@ -38,6 +39,7 @@ export class EdititemComponent implements OnInit{
       description: this.listing.description,
       owner: this.listing.owner
     }
+    
     this.dataService.updateListing(this.id,listing);
     this.router.navigate([`/catalog/${this.id}`])
   }

@@ -4,30 +4,24 @@
 <mat-card>
     <mat-card-title>Log In</mat-card-title>
     <mat-card-content>
-
-        <form [formGroup]="loginForm" class="example-form" name="loginForm" (ngSubmit)="onSubmit()">
-
-            <div class="form-group">
-                <mat-form-field>
-                    <mat-label>Email</mat-label>
-                    <input type="email" class="example-form" formControlName="email" matInput placeholder="Enter Email"
-                        required email>
-                </mat-form-field>
-            </div>
+        <form [formGroup]="loginForm" class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input type="email"  formControlName="email" matInput placeholder="Enter Email"
+                    required email>
+            </mat-form-field>
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input type="password" class="form-control" formControlName="password" matInput
+                <input type="password"  formControlName="password" matInput
                     placeholder="Enter Password" required minlength="6">
             </mat-form-field>
             <div>
-                <button mat-raised-button type="submit" [disabled]="loginForm.invalid" color="accent"
-                    class="anc">Log In</button>
-                <a mat-button routerLink="login" color="white" class="anc" routerLink="/register">Don't have an account?</a>
-
+                <button mat-raised-button type="submit"  color="accent" class="anc">Log
+                    In</button>
+                <a mat-button routerLink="login" color="white" class="anc" routerLink="/register">Don't have an
+                    account?</a>
             </div>
         </form>
-
-
     </mat-card-content>
 </mat-card>
 

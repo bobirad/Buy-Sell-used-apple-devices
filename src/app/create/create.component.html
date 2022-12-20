@@ -1,30 +1,46 @@
 <br>
 <br>
+<br>
 <mat-card>
     <mat-card-title>Create New Listing</mat-card-title>
     <mat-card-content>
         <form [formGroup]="createForm" class="example-form" (ngSubmit)="addListing()">
-            <mat-form-field >
-                <input type="text" matInput name="device" [(ngModel)]="model"  placeholder="Device - minimum 3 characters" required minlength="3">
+            <mat-form-field>
+                <mat-label>Device</mat-label>
+                <input type="text" class="form-control" formControlName="device" matInput placeholder="Device" required>
             </mat-form-field>
-            <mat-form-field >
-                <input type="text" matInput name="model" [(ngModel)]="model"  placeholder="Model - minimum 3 characters" required minlength="3">
+            <mat-form-field>
+                <mat-label>Model</mat-label>
+                <input type="text" class="form-control" formControlName="model" matInput
+                    placeholder="Minimum 3 characters!" required minlength="3">
             </mat-form-field>
-            <mat-form-field >
-                <input type="number" matInput name="year" [(ngModel)]="year"  placeholder="Year" required>
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <input type="number" class="form-control" formControlName="year" matInput placeholder="Year" required>
             </mat-form-field>
-            <mat-form-field >
-                <input type="text" matInput name="imageUrl" [(ngModel)]="imageUrl"  placeholder="imageUrl - minimum 3 characters" required minlength="3">
+            <mat-form-field>
+                <mat-label>Image Url</mat-label>
+                <input type="text" class="form-control" formControlName="imageUrl" matInput placeholder="Valid URL" required 
+                pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)">
             </mat-form-field>
-            <mat-form-field >
-                <input type="number" matInput name="price" [(ngModel)]="price"  placeholder="Price" required>
+            <mat-form-field>
+                <mat-label>Price</mat-label>
+                <input type="number" class="form-control" formControlName="price" matInput placeholder="Price" required>
             </mat-form-field>
-            <mat-form-field >
-                <input type="text" matInput name="description" [(ngModel)]="description"  placeholder="Description - minimum 10 characters" required minlength="10" >
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input type="text" class="form-control" formControlName="description" matInput placeholder="Minimum 10 characters" required minlength="10">
             </mat-form-field>
-            <mat-form-field >
-                <a mat-raised-button type="submit" disabled="createForm.invalid" color="accent" class="btn btn-primary">Publish</a>
-                &nbsp; &nbsp; &nbsp; &nbsp;
-                <a mat-raised-button routerLink="/catalog">Back</a>
-            </mat-form-field>
+            <div>
+                <button mat-raised-button type="submit" [disabled]="createForm.invalid" color="accent"
+                    class="anc">Publish</button>
+                <a mat-button routerLink="login" color="white" class="anc" routerLink="/catalog">Cancel</a>
+
+            </div>
         </form>
+
+
+    </mat-card-content>
+</mat-card>
+
+

@@ -26,7 +26,7 @@ export class DataService {
     return this.afs.doc('items/' + id).valueChanges();
   }
 
-  async getListingsByCreator(){
+  /*async getListingsByCreator(){
     const listingsRef:any = this.afs.collection('/items');
     let currentUserEmail = this.getauth.currentUser?.email;
 
@@ -36,7 +36,7 @@ export class DataService {
       this.itemsRef.push(doc);
     }) 
     return this.itemsRef;
-  }
+  }*/
   getAllListings() {
     return this.afs.collection('/items').snapshotChanges()
   }
