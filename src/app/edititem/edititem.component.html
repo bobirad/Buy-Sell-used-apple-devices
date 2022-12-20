@@ -1,35 +1,103 @@
-<a mat-raised-button color="accent" class="btn btn-primary" routerLink="/profile" >My Listings</a>
+<a mat-raised-button color="accent" class="btn btn-primary" routerLink="/profile">My Listings</a>
+
+<br>
+<br>
+<br>
 <mat-card>
     <mat-card-title>Edit Listing</mat-card-title>
     <mat-card-content>
-        <form>
-            <mat-form-field >
+        <form [formGroup]="createForm" class="example-form" (ngSubmit)="addListing()">
+            <mat-form-field>
                 <mat-label>Device</mat-label>
-                <input type="text" name="device" [(ngModel)]="listing.device" class="form-control" placeholder="Device" required minlength="3">
+                <input type="text" class="form-control" formControlName="device" matInput placeholder="Device" required>
             </mat-form-field>
-            <mat-form-field >
+            <mat-form-field>
                 <mat-label>Model</mat-label>
-                <input type="text" name="model" [(ngModel)]="listing.model" class="form-control" placeholder="Model" required minlength="3">
+                <input type="text" class="form-control" formControlName="model" matInput
+                    placeholder="Minimum 3 characters!" required minlength="3">
             </mat-form-field>
-            <mat-form-field >
+            <mat-form-field>
                 <mat-label>Year</mat-label>
-                <input type="number" name="year" [(ngModel)]="listing.year" class="form-control" placeholder="Year" required>
+                <input type="number" class="form-control" formControlName="year" matInput placeholder="Year" required>
             </mat-form-field>
-            <mat-form-field >
-                <mat-label>imageUrl</mat-label>
-                <input type="text" name="imageUrl" [(ngModel)]="listing.imageUrl" class="form-control" placeholder="imageUrl" required minlength="3">
+            <mat-form-field>
+                <mat-label>Image Url</mat-label>
+                <input type="text" class="form-control" formControlName="imageUrl" matInput placeholder="Valid URL" required 
+                pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)">
             </mat-form-field>
-            <mat-form-field MatFormFieldControl >
+            <mat-form-field>
                 <mat-label>Price</mat-label>
-                <input type="number" name="price" [(ngModel)]="listing.price" class="form-control" placeholder="Price" required>
+                <input type="number" class="form-control" formControlName="price" matInput placeholder="Price" required>
             </mat-form-field>
-            <mat-form-field >
+            <mat-form-field>
                 <mat-label>Description</mat-label>
-                <input type="text" name="description" [(ngModel)]="listing.description" class="form-control" placeholder="Description - minimum 10 characters" required minlength="10">
+                <input type="text" class="form-control" formControlName="description" matInput placeholder="Minimum 10 characters" required minlength="10">
             </mat-form-field>
-            <mat-form-field >
-                <a mat-raised-button type="submit" color="accent" class="btn btn-primary" (click)="editSubmit()">Publish</a>
-                &nbsp; &nbsp; &nbsp; &nbsp;
-                <a mat-raised-button type="reset" class="btn btn-danger" routerLink="/profile">Cancel</a>
-            </mat-form-field>
+            <div>
+                <button mat-raised-button type="submit" [disabled]="createForm.invalid" color="accent"
+                    class="anc">Publish</button>
+                <a mat-button routerLink="login" color="white" class="anc" routerLink="/catalog">Cancel</a>
+
+            </div>
         </form>
+
+
+    </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+<!--
+<mat-card>
+    <mat-card-title>Edit Listing</mat-card-title>
+        <form #editForm="ngForm" (ngSubmit)="editSubmit()">
+            <mat-form-field>
+                <mat-label>Device</mat-label>
+                <input type="text" name="device"  [(ngModel)]="listing.device" #device="ngModel"
+                     required minlength="3">
+            </mat-form-field>
+            <div *ngIf="device.invalid">Device must be atleast 3 characters!</div>
+            <mat-form-field>
+                <mat-label>Model</mat-label>
+                <input type="text" name="model"  [(ngModel)]="listing.model" #model="ngModel"
+                     required minlength="3">
+            </mat-form-field>
+            <div *ngIf="model.invalid">Model must be atleast 3 characters!</div>
+            <mat-form-field>
+                <mat-label>Year</mat-label>
+                <input type="number" name="year"  [(ngModel)]="listing.year" #year="ngModel"
+                     required>
+            </mat-form-field>
+            <div *ngIf="year.invalid">Year is required!</div>
+
+            <mat-form-field>
+                <mat-label>imageUrl</mat-label>
+                <input type="text" name="imageUrl"  [(ngModel)]="listing.imageUrl"
+                    #imageUrl="ngModel"  required minlength="3">
+            </mat-form-field>
+            <div *ngIf="imageUrl.invalid">Image Url must be atleast 3 characters!</div>
+            <mat-form-field MatFormFieldControl>
+                <mat-label>Price</mat-label>
+                <input type="number" name="price"  [(ngModel)]="listing.price" #price="ngModel"
+                     required>
+            </mat-form-field>
+            <div *ngIf="price.invalid">Price is required!</div>
+
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input type="text" name="description"  [(ngModel)]="listing.description"
+                    #description="ngModel"  required minlength="10">
+            </mat-form-field>
+            <div *ngIf="description.invalid">Description must be atleast 10 characters</div>
+
+                <button mat-raised-button type="submit" disabled="!editForm.valid" color="accent"
+                      >Publish</button>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button mat-raised-button type="reset" routerLink="/profile">Cancel</button>
+        </form>
+</mat-card>
+
+-->
